@@ -1,26 +1,21 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {Game} from "./models/game";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    let game = new Game(9);
+    return (
+        <body>
+        <table>
+            {game.board.map(function (row, index) {
+                return <tr key={index}>{row.map(function (item, index) {
+                    return <td key={index}>{item}</td>;
+                })}</tr>;
+            })}
+        </table>
+
+        </body>
+    );
 }
 
 export default App;
